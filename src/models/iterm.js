@@ -13,7 +13,7 @@ const Iterm = mongoose.model('Iterm', {
         trim: true,
     },
     price: {
-        type: Float,
+        type: String,
         required: true,
         default: 0.00
     },
@@ -30,6 +30,11 @@ const Iterm = mongoose.model('Iterm', {
                 throw new Error('Age must be a postive number')
             }
         }
+    },
+     owner: {
+        type: mongoose.Schema.Types.ObjectId,
+        required: true,
+        ref: 'User'
     }
 })
 
